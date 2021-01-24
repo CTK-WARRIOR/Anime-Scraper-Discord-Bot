@@ -16,6 +16,7 @@ readdirSync("./commands/").forEach(file => {
 
 client.on("ready", () => {
 	console.log("----------- SYSTEM ON -----------")
+  client.user.setActivity("c!help")
 });
 
 client.on("message", (message) => {
