@@ -9,8 +9,9 @@ app.get("/", (request, response) => {
   response.end("Watch And Have Fun!")
 });
 
-app.get("/:vdo", (request, response) => {
-  let vdo = request.params.vdo;
+app.get("/vdo", (request, response) => {
+  let vdo = request.query.url
+  if(!vdo) return response.send("Something Wrong :/")
   response.set('Content-Type', 'text/html');
   response.send(Buffer.from(`<!DOCTYPE html>
 <html>
@@ -26,7 +27,7 @@ video {
 <body style="text-align:center;">
 
 <video width="400" controls>
- <source src="https://gogo-play.net/goto.php?url=${vdo}" type="video/mp4">
+ <source src="${vdo}" type="video/mp4">
   Your browser does not support HTML5 video.
 </video>
 
