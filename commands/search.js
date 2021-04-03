@@ -24,7 +24,7 @@ module.exports = {
 
 
 		axios({
-				url: "https://gogoanime.so//search.html?keyword=" + searchString
+				url: "https://gogoanime.ai//search.html?keyword=" + searchString
 			})
 			.then(async function(res) {
 
@@ -58,7 +58,7 @@ module.exports = {
 
 				cards.title.forEach((x, i) => {
 					if (i >= 10) return;
-					x = `[ ${i+1} ] : [` + x + `](https://gogoanime.so${cards.link[i]})`
+					x = `[ ${i+1} ] : [` + x + `](https://gogoanime.ai${cards.link[i]})`
 					description.push(x)
 				})
 
@@ -121,7 +121,7 @@ module.exports = {
 				}
 
 				res = await axios({
-					url: "https://gogoanime.so" + target
+					url: "https://gogoanime.ai" + target
 				})
 				$ = cheerio.load(res.data)
 				let anime_title = $('div.anime_info_body_bg h1').text()
@@ -185,7 +185,7 @@ module.exports = {
 
 				}
 
-				let episode_link = "https://gogoanime.so" + target.replace('category/', '') + "-episode-" + repMsg.content.trim()
+				let episode_link = "https://gogoanime.ai" + target.replace('category/', '') + "-episode-" + repMsg.content.trim()
 				
 
 
